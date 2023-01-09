@@ -11,6 +11,9 @@
 		<p>
 			<button id=record>Toggle recording</button>
 		</p>
+    <p>
+      <a id="downloadme" download>
+    </p>
 		<p>
 			Duration: <span id="duration">0ms</span>
 		</p>
@@ -25,6 +28,7 @@
 	var recorder = new WzRecorder({
 		onRecordingStop: function(blob) {
 			document.getElementById('player').src = URL.createObjectURL(blob);
+      document.getElementById('downloadme').href = URL.createObjectURL(blob);
       console.log("This recording has stopped!!!")
 		},
 		onRecording: function(milliseconds) {
