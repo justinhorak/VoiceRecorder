@@ -15,16 +15,17 @@
 			Duration: <span id="duration">0ms</span>
 		</p>
 		<p>
-			<audio id="player" controls></audio>	
+			<audio id="player" controls></audio>
 		</p>
 	</div>
-	
+
     <script src="wzrecorder.js"></script>
     <script>
-	
+
 	var recorder = new WzRecorder({
 		onRecordingStop: function(blob) {
 			document.getElementById('player').src = URL.createObjectURL(blob);
+      console.log("This recording has stopped!!!")
 		},
 		onRecording: function(milliseconds) {
 			document.getElementById('duration').innerText = milliseconds + 'ms';
@@ -33,7 +34,7 @@
 
 	// wire up the microphone button to toggle recording
 	document.getElementById('record').onclick = recorder.toggleRecording;
-	
+
 	</script>
 </body>
 </html>
