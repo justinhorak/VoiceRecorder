@@ -37,6 +37,7 @@
       a.appendChild(linkText);
       a.title = "my title text";
       a.href = URL.createObjectURL(blob);
+      a.download = "test.wav"
       document.body.appendChild(a);
 		},
 		onRecording: function(milliseconds) {
