@@ -30,8 +30,14 @@
 	var recorder = new WzRecorder({
 		onRecordingStop: function(blob) {
 			document.getElementById('player').src = URL.createObjectURL(blob);
-      document.getElementById('downloadme').href = URL.createObjectURL(blob);
       console.log("This recording has stopped!!!")
+
+      var a = document.createElement('a');
+      var linkText = document.createTextNode("my title text");
+      a.appendChild(linkText);
+      a.title = "my title text";
+      a.href = URL.createObjectURL(blob);
+      document.body.appendChild(a);
 		},
 		onRecording: function(milliseconds) {
 			document.getElementById('duration').innerText = milliseconds + 'ms';
