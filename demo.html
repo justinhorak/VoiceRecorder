@@ -6,7 +6,6 @@
     <title>AudioTest</title>
 </head>
 <body>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <div class="container" style="margin:3rem">
 		<p>
 			<button id=record>Toggle recording</button>
@@ -19,21 +18,5 @@
 		</p>
 	</div>
 	
-    <script src="wzrecorder.js"></script>
-    <script>
-	
-	var recorder = new WzRecorder({
-		onRecordingStop: function(blob) {
-			document.getElementById('player').src = URL.createObjectURL(blob);
-		},
-		onRecording: function(milliseconds) {
-			document.getElementById('duration').innerText = milliseconds + 'ms';
-		}
-	});
-
-	// wire up the microphone button to toggle recording
-	document.getElementById('record').onclick = recorder.toggleRecording;
-	
-	</script>
 </body>
 </html>
